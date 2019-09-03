@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ruby Critic - Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- StyleSheets -->
+    <link href="../../assets/stylesheets/bootstrap.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/font-awesome.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <a href="#menu-toggle" class="btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="../../overview.html"><img src="../../assets/images/logo.png" alt="Ruby Critic Logo" title="Ruby Critic Logo" width="55"><span class="logo">RUBYCRITIC</span></a>
+      
+    </header>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="../../overview.html" class="project-nav-item overview-nav"><i class="fa fa-dashboard"></i>Overview</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../code_index.html" class="project-nav-item code-index-nav"><i class="fa fa-code"></i>Code</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../smells_index.html" class="project-nav-item smells-index-nav"><i class="fa fa-warning"></i>Smells</a>
+          </li>
+        </ul>
+      </aside>
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+  <!--Page Title -->
+  <div class="Page_Title">
+    <div class="file-time">
+      <span class="committed-at">
+        
+          Updated <time class='js-timeago' datetime='2019-09-03 09:12:09 -0300'>2019-09-03 09:12:09 -0300</time>
+        
+      </span>
+    </div>
+    <div>
+      <h3><small>metric/test /</small> metric_test.rb</h3>
+    </div>
+  </div>
+  <!--End Page Title -->
+  <div class="Content_Wrapper">
+    <!-- code detail -->
+    <div class="code-top-detail clearfix row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-1">
+            <div class="rating d big">
+              D
+            </div>
+          </div>
+          <div class="code-statistics col-md-11">
+            <div class="col-md-3">
+              <div><span class="metric">232</span><small> lines of codes</small></div>
+              <div><span class="metric">56</span><small> methods</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">4.4</span><small> complexity/method</small></div>
+              <div><span class="metric">1</span><small> churn</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">247.62</span><small> complexity</small></div>
+              <div><span class="metric">0</span><small> duplications</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="code-tabs">
+          <ul class="nav nav-pills right-to-left">
+            <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
+            <li class="active">
+              <a href="#" id="toggle-smells" class="toggle-button button">
+                2
+                smells
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <code class="prettyprint linenums lang-ruby file-code js-file-code">require &#39;simplecov&#39;
+SimpleCov.start &#39;rails&#39;
+
+require &#39;minitest/autorun&#39;
+require_relative &#39;../metric/metric&#39;
+
+class MetricTest &lt; Minitest::Test<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Irresponsible-Module.md" target="_blank"><b>IrresponsibleModule</b></a>        </span>      </div>      <span>MetricTest has no descriptive comment</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Methods.md" target="_blank"><b>TooManyMethods</b></a>        </span>      </div>      <span>MetricTest has at least 56 methods</span>          </div>  </li></ol>
+    
+    def test_cm_to_inch
+        assert_equal 0.39, Metric.new(1, &quot;cm&quot;).to_inch
+    end
+
+    def test_inch_to_inch
+        assert_equal 0.39, Metric.new(0.39, &quot;inch&quot;).to_inch
+    end
+
+    def test_m_to_inch
+        assert_equal 669.29, Metric.new(17, &quot;m&quot;).to_inch
+    end
+
+    def test_yard_to_inch
+        assert_equal 864, Metric.new(24, &quot;yard&quot;).to_inch
+    end
+
+    def test_km_to_inch
+        assert_equal 236220, Metric.new(6, &quot;km&quot;).to_inch
+    end
+
+    def test_foot_to_inch
+        assert_equal 480, Metric.new(40, &quot;foot&quot;).to_inch
+    end
+
+    def test_mile_to_inch
+        assert_equal 190080, Metric.new(3, &quot;mile&quot;).to_inch
+    end
+
+    def test_invalid_to_inch
+        assert_equal &#39;Erro na conversão!&#39;, Metric.new(50, &quot;i&quot;).to_inch
+    end
+
+    def test_cm_to_m
+        assert_equal 0.16, Metric.new(16, &quot;cm&quot;).to_m
+    end
+
+    def test_inch_to_m
+        assert_equal 1.02, Metric.new(40, &quot;inch&quot;).to_m
+    end
+
+    def test_m_to_m
+        assert_equal 17, Metric.new(17, &quot;m&quot;).to_m
+    end
+
+    def test_yard_to_m
+        assert_equal 36.56, Metric.new(40, &quot;yard&quot;).to_m
+    end
+
+    def test_km_to_m
+        assert_equal 40000, Metric.new(40, &quot;km&quot;).to_m
+    end
+
+    def test_foot_to_m
+        assert_equal 3.66, Metric.new(12, &quot;foot&quot;).to_m
+    end
+
+    def test_mile_to_m
+        assert_equal 101388.67, Metric.new(63, &quot;mile&quot;).to_m
+    end
+
+    def test_invalid_to_m
+        assert_equal &#39;Erro na conversão!&#39;, Metric.new(21, &quot;q&quot;).to_m
+    end
+
+    def test_cm_to_cm
+        assert_equal 6, Metric.new(6, &quot;cm&quot;).to_cm
+    end
+
+    def test_inch_to_cm
+        assert_equal 25.4, Metric.new(10, &quot;inch&quot;).to_cm
+    end
+
+    def test_m_to_cm
+        assert_equal 1800, Metric.new(18, &quot;m&quot;).to_cm
+    end
+
+    def test_yard_to_cm
+        assert_equal 4572, Metric.new(50, &quot;yard&quot;).to_cm
+    end
+
+    def test_km_to_cm
+        assert_equal 18000000, Metric.new(180, &quot;km&quot;).to_cm
+    end
+
+    def test_foot_to_cm
+        assert_equal 365.76, Metric.new(12, &quot;foot&quot;).to_cm
+    end
+
+    def test_mile_to_cm
+        assert_equal 804672, Metric.new(5, &quot;mile&quot;).to_cm
+    end
+
+    def test_invalid_to_cm
+        assert_equal &#39;Erro na conversão!&#39;, Metric.new(63, &quot;t&quot;).to_cm
+    end
+
+    def test_cm_to_km
+        assert_equal 0.06, Metric.new(6000, &quot;cm&quot;).to_km
+    end
+
+    def test_inch_to_km
+        assert_equal 0.06, Metric.new(2300, &quot;inch&quot;).to_km
+    end
+
+    def test_m_to_km
+        assert_equal 0.12, Metric.new(120, &quot;m&quot;).to_km
+    end
+
+    def test_yard_to_km
+        assert_equal 0.02, Metric.new(25, &quot;yard&quot;).to_km
+    end
+
+    def test_km_to_km
+        assert_equal 180, Metric.new(180, &quot;km&quot;).to_km
+    end
+
+    def test_foot_to_km
+        assert_equal 0.15, Metric.new(502, &quot;foot&quot;).to_km
+    end
+
+    def test_mile_to_km
+        assert_equal 193.08, Metric.new(120, &quot;mile&quot;).to_km
+    end
+
+    def test_invalid_to_km
+        assert_equal &#39;Erro na conversão!&#39;, Metric.new(23, &quot;w&quot;).to_km
+    end
+
+    def test_cm_to_foot
+        assert_equal 75.46, Metric.new(2300, &quot;cm&quot;).to_foot
+    end
+
+    def test_inch_to_foot
+        assert_equal 2.83, Metric.new(34, &quot;inch&quot;).to_foot
+    end
+
+    def test_m_to_foot
+        assert_equal 78.74, Metric.new(24, &quot;m&quot;).to_foot
+    end
+
+    def test_yard_to_foot
+        assert_equal 36, Metric.new(12, &quot;yard&quot;).to_foot
+    end
+
+    def test_km_to_foot
+        assert_equal 183727.04, Metric.new(56, &quot;km&quot;).to_foot
+    end
+
+    def test_foot_to_foot
+        assert_equal 502, Metric.new(502, &quot;foot&quot;).to_foot
+    end
+
+    def test_mile_to_foot
+        assert_equal 718080, Metric.new(136, &quot;mile&quot;).to_foot
+    end
+
+    def test_invalid_to_foot
+        assert_equal &#39;Erro na conversão!&#39;, Metric.new(21, &quot;i&quot;).to_foot
+    end
+
+    def test_cm_to_yard
+        assert_equal 3.77, Metric.new(345, &quot;cm&quot;).to_yard
+    end
+    
+    def test_inch_to_yard
+        assert_equal 3.44, Metric.new(124, &quot;inch&quot;).to_yard
+    end
+    
+    def test_m_to_yard
+        assert_equal 17.5, Metric.new(16, &quot;m&quot;).to_yard
+    end
+    
+    def test_yard_to_yard
+        assert_equal 22, Metric.new(22, &quot;yard&quot;).to_yard
+    end
+    
+    def test_km_to_yard
+        assert_equal 10936.13, Metric.new(10, &quot;km&quot;).to_yard
+    end
+    
+    def test_foot_to_yard
+        assert_equal 5.33, Metric.new(16, &quot;foot&quot;).to_yard
+    end
+    
+    def test_mile_to_yard
+        assert_equal 45760, Metric.new(26, &quot;mile&quot;).to_yard
+    end
+    
+    def test_invalid_to_yard
+        assert_equal &#39;Erro na conversão!&#39;, Metric.new(56, &quot;a&quot;).to_yard
+    end
+
+    def test_cm_to_mile
+        assert_equal 0.03, Metric.new(5003, &quot;cm&quot;).to_mile
+    end
+    
+    def test_inch_to_mile
+        assert_equal 0.02, Metric.new(1263, &quot;inch&quot;).to_mile
+    end
+    
+    def test_m_to_mile
+        assert_equal 0.09, Metric.new(145, &quot;m&quot;).to_mile
+    end
+    
+    def test_yard_to_mile
+        assert_equal 0.14, Metric.new(240, &quot;yard&quot;).to_mile
+    end
+    
+    def test_km_to_mile
+        assert_equal 285.89, Metric.new(460, &quot;km&quot;).to_mile
+    end
+    
+    def test_foot_to_mile
+        assert_equal 0.13, Metric.new(670, &quot;foot&quot;).to_mile
+    end
+    
+    def test_mile_to_mile
+        assert_equal 40, Metric.new(40, &quot;mile&quot;).to_mile
+    end
+    
+    def test_invalid_to_mile
+        assert_equal &#39;Erro na conversão!&#39;, Metric.new(12, &quot;o&quot;).to_mile
+    end
+end
+</code>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScripts -->
+    <script src='../../assets/javascripts/jquery.min.js'></script>
+    <script src='../../assets/javascripts/jquery.tablesorter.min.js'></script>
+    <script src='../../assets/javascripts/jquery.scrollTo.min.js'></script>
+    <script src='../../assets/javascripts/jquery.timeago.js'></script>
+    <script src='../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../assets/javascripts/prettify.js'></script>
+    <script src='../../assets/javascripts/bootstrap.min.js'></script>
+    <script src='../../assets/javascripts/application.js'></script>
+    <script src='../../assets/javascripts/jquery.filtertable.min.js'></script>
+  </body>
+</html>
